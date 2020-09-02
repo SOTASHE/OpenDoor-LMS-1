@@ -18,7 +18,7 @@ class IconCard extends StatelessWidget{
     return Container(
       padding: EdgeInsets.all(8), //padding on all directions
       child: InkWell(
-          onTap: (){},  //navigates to the page specified by routeName
+          onTap: (){ Navigator.pushNamed(context, this.routeName);},  //navigates to the page specified by routeName
 
           child: Card(
             elevation: 10,
@@ -28,10 +28,21 @@ class IconCard extends StatelessWidget{
 
             child: Container(
               height: MediaQuery.of(context).size.height /5,
-              width: MediaQuery.of(context).size.height /5,
+              width: MediaQuery.of(context).size.height /5 ,
 
               child: Column(
                 children: [
+
+                  // Icon
+                  Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Image.asset(
+                      'assets/${this.image}',
+                      fit: BoxFit.contain,
+                      height: MediaQuery.of(context).size.height /6,
+                      width: MediaQuery.of(context).size.width/4,
+                    ),
+                  ),
 
                   Text(this.title)
                 ],

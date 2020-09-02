@@ -33,8 +33,8 @@ class HomeScreen extends StatelessWidget{
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IconCard(title: "Announcements", image: "PathToImage", routeName: "NextPage",),
-                    IconCard(title: "My Classes", image: "PathToImage", routeName: "NextPage",),
+                    IconCard(title: "Announcements", image: "images/announcements.png", routeName: "/announcements",),
+                    IconCard(title: "My Classes", image: "images/openbook.png", routeName: "/classes",),
                   ],
                 ),
               ),
@@ -44,8 +44,8 @@ class HomeScreen extends StatelessWidget{
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IconCard(title: "Assignments", image: "PathToImage", routeName: "NextPage",),
-                    IconCard(title: "Study Materials", image: "PathToImage", routeName: "NextPage",),
+                    IconCard(title: "Assignments", image: "images/assignments.png", routeName: "NextPage",),
+                    IconCard(title: "Study Materials", image: "images/test.png", routeName: "NextPage",),
                   ],
                 ),
               ),
@@ -55,8 +55,8 @@ class HomeScreen extends StatelessWidget{
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IconCard(title: "Study Plannar", image: "PathToImage", routeName: "NextPage",),
-                    IconCard(title: "Games", image: "PathToImage", routeName: "NextPage",),
+                    IconCard(title: "Study Plannar", image: "images/calendar.png", routeName: "NextPage",),
+                    IconCard(title: "Games", image: "images/game.png", routeName: "NextPage",),
                   ],
                 ),
               ),
