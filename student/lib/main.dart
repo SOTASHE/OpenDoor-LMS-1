@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:student/screens/assignmentScreen/assignmentScreen.dart';
 import 'package:student/screens/classesScreen.dart';
 import 'package:student/screens/homeScreen/homeScreen.dart';
 
@@ -13,7 +14,8 @@ class StudentApp extends StatelessWidget{
     return MaterialApp(
       routes: {
         "/home": (context) => HomeScreen(),
-        "/classes": (context) => ClassesScreen()
+        "/classes": (context) => ClassesScreen(),
+        "/assignment": (context) => AssignmentScreen(),
       },
       home: HomeScreen(),
     );

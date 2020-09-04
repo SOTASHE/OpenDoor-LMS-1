@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget{
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IconCard(title: "Assignments", image: "images/assignments.png", routeName: "NextPage",),
+                    IconCard(title: "Assignments", image: "images/assignments.png", routeName: "/assignment",),
                     IconCard(title: "Study Materials", image: "images/test.png", routeName: "NextPage",),
                   ],
                 ),
