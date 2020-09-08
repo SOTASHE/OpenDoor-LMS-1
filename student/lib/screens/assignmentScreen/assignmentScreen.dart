@@ -8,20 +8,67 @@ class AssignmentScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     List<Assignment> assignmentsAvailable = Assignment.fetchAll();
-    return Scaffold(
-      appBar: AppBar(title: Text("Due Assignments"),),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+          elevation: 0,
+          title: Text("Assignments and Classworks"),
 
-      body: Container(
+          bottom: TabBar(
+            labelColor: Colors.blue,
+            unselectedLabelColor: Colors.white,
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicator: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15)),
+                color: Colors.white),
 
-        child: ListView.builder(
-            itemCount: assignmentsAvailable.length ,
-            itemBuilder: (BuildContext listContext, int index){
-              return AssignmentCard(
-                subjectName: assignmentsAvailable[index].getSubjectName(),
-                title: assignmentsAvailable[index].getTitle() ,
-                shortIntro: assignmentsAvailable[index].getIntro(),
-                  );
-            }),
+            tabs: [
+
+              Tab(child: Text("Due"),),
+              Tab(child: Text("All")),
+            ],
+          ),
+        ),
+
+
+
+        body: TabBarView(
+
+
+          children: [
+            Container(
+
+              child: ListView.builder(
+                  itemCount: assignmentsAvailable.length ,
+                  itemBuilder: (BuildContext listContext, int index){
+                    return AssignmentCard(
+                      subjectName: assignmentsAvailable[index].getSubjectName(),
+                      title: assignmentsAvailable[index].getTitle() ,
+                      shortIntro: assignmentsAvailable[index].getIntro(),
+                      marks: assignmentsAvailable[index].getMarks(),
+                        );
+                  }),
+            ),
+            Container(
+
+              child: ListView.builder(
+                  itemCount: assignmentsAvailable.length ,
+                  itemBuilder: (BuildContext listContext, int index){
+                    return AssignmentCard(
+                      subjectName: assignmentsAvailable[index].getSubjectName(),
+                      title: assignmentsAvailable[index].getTitle() ,
+                      shortIntro: assignmentsAvailable[index].getIntro(),
+                      marks: assignmentsAvailable[index].getMarks(),
+                        );
+                  }),
+            ),
+          ],
+        ),
       ),
     );
   }

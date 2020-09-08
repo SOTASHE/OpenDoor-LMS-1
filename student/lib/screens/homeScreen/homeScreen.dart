@@ -5,67 +5,50 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:student/components/iconcard.dart';
+import 'package:student/screens/homeScreen/dashboard.dart';
 
 
-class HomeScreen extends StatelessWidget{
+class HomeScreen extends StatefulWidget{
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+  final List<Widget> _screens = [ DashBoard(), DashBoard()];
+
+  void changeScreen(int index){
+    setState(() {
+      _currentIndex =index;
+    });
+  }
+
   @override
   Widget build(BuildContext context){
 
     return Scaffold(
       backgroundColor:  Colors.blueGrey[100],
       appBar: AppBar(title: Text("Home"),),
-      body: SingleChildScrollView(
-
-        // Contains Home Screen cards
-        ///TODO implement top banner
-        child: Container(
-
-
-
-          // Cards are arranged in 2x3
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-
-              // First Row of cards
-              FittedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconCard(title: "Announcements", image: "images/announcements.png", routeName: "/announcements",),
-                    IconCard(title: "My Classes", image: "images/openbook.png", routeName: "/classes",),
-                  ],
-                ),
-              ),
-
-              // Second Row Of Cards
-              FittedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconCard(title: "Assignments", image: "images/assignments.png", routeName: "/assignment",),
-                    IconCard(title: "Study Materials", image: "images/test.png", routeName: "NextPage",),
-                  ],
-                ),
-              ),
-
-              // Third Row Of Card
-              FittedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconCard(title: "Study Plannar", image: "images/calendar.png", routeName: "NextPage",),
-                    IconCard(title: "Games", image: "images/game.png", routeName: "NextPage",),
-                  ],
-                ),
-              ),
-
-            ],
-          ),
-        ),
+      body: _screens[0],
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.blue,
+        unselectedItemColor: Colors.blueGrey,
+        onTap: changeScreen,
+        currentIndex: _currentIndex,
+        type: BottomNavigationBarType.shifting,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.dashboard),
+              title: Text("Home")),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.question_answer),
+              title: Text("Messages")),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              title: Text("Profile")),
+        ],
       ),
+
     );
   }
-
 }

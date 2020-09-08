@@ -22,6 +22,7 @@ class IconCard extends StatelessWidget{
 
           child: Card(
             elevation: 10,
+            
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10)
             ),
@@ -39,12 +40,12 @@ class IconCard extends StatelessWidget{
                     child: Image.asset(
                       'assets/${this.image}',
                       fit: BoxFit.contain,
-                      height: MediaQuery.of(context).size.height /6,
+                      height: MediaQuery.of(context).size.height /7,
                       width: MediaQuery.of(context).size.width/4,
                     ),
                   ),
 
-                  Text(this.title)
+                  Text(this.title),
                 ],
               ),
             )
