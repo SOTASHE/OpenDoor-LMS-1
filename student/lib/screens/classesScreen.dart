@@ -11,14 +11,20 @@ class ClassesScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
-        elevation: 0,
-        title:Text(
-            'My Subjects',
-            style: TextStyle(
-                color: Colors.white
-            )
+        flexibleSpace: FlexibleSpaceBar(
+              centerTitle: true,
+              title: Text('Title',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                  )),
+              background: Image.network(
+                'https://images.pexels.com/photos/443356/pexels-photo-443356.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+                fit: BoxFit.cover,
+              )
         ),
-      ),
+        ),
+
 
       // Body Contains a list of subject, Fetched From Database
       body: SingleChildScrollView(
