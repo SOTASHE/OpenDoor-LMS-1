@@ -4,7 +4,9 @@ This a text Messaging screen
  */
 
 import 'package:flutter/material.dart';
+import 'package:student/models/contact.dart';
 import 'package:student/models/messages.dart';
+import 'package:student/screens/contactCard.dart';
 
 import 'messageCard.dart';
 
@@ -16,6 +18,7 @@ class MessagesScreen extends StatefulWidget {
 class _MessagesScreenState extends State<MessagesScreen> {
 
   List<Message> allChats = Message.fetchAll();
+  List<Contact>  allContacts = Contact.fetchAll();
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +39,9 @@ class _MessagesScreenState extends State<MessagesScreen> {
 
             ),
           ),
+          actions: [
+            IconButton(icon: Icon(Icons.search, color: Colors.blueGrey,), onPressed: (){})
+          ],
 
           bottom: TabBar(
 
@@ -62,6 +68,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
 
         body: TabBarView(
           children: [
+            //All Chats
             Container(
               child: ListView.builder(
                   itemCount: allChats.length,
@@ -77,7 +84,42 @@ class _MessagesScreenState extends State<MessagesScreen> {
                   },
               )
             ),
-            Container(),
+
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //Select, contact
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    "Select Contact, Start Private Chat",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 15
+                    ),
+                  ),
+                ),
+
+
+                Expanded(
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    children: List.generate(allContacts.length,(index){
+                              return ContactCard(
+                                profile: allContacts[index].getProfile(),
+                                userName: allContacts[index].getUserName(),
+                                role: allContacts[index].getRole(),
+
+                              );
+                          },
+                      ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
