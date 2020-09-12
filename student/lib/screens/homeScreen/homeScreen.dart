@@ -4,8 +4,8 @@
  */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:student/components/iconcard.dart';
 import 'package:student/screens/homeScreen/dashboard.dart';
+import 'package:student/screens/messagesScreen/messagesScreen.dart';
 
 
 class HomeScreen extends StatefulWidget{
@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget{
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
-  final List<Widget> _screens = [ DashBoard(), DashBoard()];
+  final List<Widget> _screens = [ DashBoard(), MessagesScreen()];
 
   void changeScreen(int index){
     setState(() {
@@ -28,21 +28,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       backgroundColor:  Colors.blueGrey[100],
-      appBar: AppBar(title: Text("Home"),),
-      body: _screens[0],
+      body: _screens[_currentIndex],
+
       bottomNavigationBar: BottomNavigationBar(
         fixedColor: Colors.blue,
+        elevation: 10,
         unselectedItemColor: Colors.blueGrey,
         onTap: changeScreen,
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.shifting,
+
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.dashboard),
               title: Text("Home")),
           BottomNavigationBarItem(
               icon: Icon(Icons.question_answer),
-              title: Text("Messages")),
+              title: Text("Inbox")),
           BottomNavigationBarItem(
               icon: Icon(Icons.person),
               title: Text("Profile")),

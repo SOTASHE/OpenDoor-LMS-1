@@ -58,6 +58,12 @@ flutter:
      - assets/classIcons/flask.png
      - assets/classIcons/globe.png
      - assets/classIcons/dna.png
+     - assets/users_images/chatbot.png
+     - assets/users_images/SADAG.jpg
+     - assets/users_images/female_teacher.png
+     - assets/users_images/male_teacher.png
+     - assets/users_images/james.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

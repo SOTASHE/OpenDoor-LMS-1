@@ -38,7 +38,7 @@ class Announcement{
   Color typeColor(){
     // Color for type of announcement text
     Color color;
-    switch(this._type){
+    switch(this._type.toUpperCase()){
 
       case "GENERAL":
         color = Colors.red;
@@ -60,7 +60,13 @@ class Announcement{
         Announcement(
             type: "CLASSES",
             title: "Introducing new communication pathways",
-            content: "Obviously I am talking , about some telepathic shit",
+            content: "Dear Student\n\n"
+                "I hope this message find you well.\n"
+                "New form of learning strategy are underway...We know that sudden change "
+                "is hard"
+                "\n\n"
+                "Best Regards\n"
+                "The Admin",
             timeReceived: "05:12 PM"
 
         ) ,
@@ -78,6 +84,65 @@ class Announcement{
             timeReceived: "06:66 PM"
 
         ) ,
+        Announcement(
+            type: "EXAMS",
+            title: "ALL GRADES 8-11, WILL WRITE EXAMS",
+            content: "Covid Cases update In our School",
+            timeReceived: "06:66 PM"
+
+        ) ,
       ];
+  }
+  static List<Announcement> fetchExams(){
+    return [
+
+      Announcement(
+          type: "EXAMS",
+          title: "This is a title ",
+          content: "Covid Cases update In our School",
+          timeReceived: "06:66 PM"
+
+      ) ,
+      Announcement(
+          type: "EXAMS",
+          title: "Yes, this is a title.",
+          content: "Covid Cases update In our School",
+          timeReceived: "06:66 PM"
+
+      ) ,
+      Announcement(
+          type: "EXAMS",
+          title: "Nothing but a title",
+          content: "Covid Cases update In our School",
+          timeReceived: "06:66 PM"
+
+      ) ,
+    ];
+  }
+  static List<Announcement> fetchGeneral(){
+    return [
+
+      Announcement(
+          type: "General",
+          title: "This is a title ",
+          content: "Covid Cases update In our School",
+          timeReceived: "06:66 PM"
+
+      ) ,
+      Announcement(
+          type: "General",
+          title: "Yes, this is a title.",
+          content: "Covid Cases update In our School",
+          timeReceived: "06:66 PM"
+
+      ) ,
+      Announcement(
+          type: "General",
+          title: "Nothing but a title",
+          content: "Covid Cases update In our School",
+          timeReceived: "06:66 PM"
+
+      ) ,
+    ];
   }
 }

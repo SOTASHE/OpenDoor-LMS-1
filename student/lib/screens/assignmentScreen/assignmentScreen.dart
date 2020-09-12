@@ -24,7 +24,9 @@ class AssignmentScreen extends StatelessWidget{
             indicator: BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15)),
+                    topRight: Radius.circular(15),),
+
+                    
                 color: Colors.white),
 
             tabs: [
